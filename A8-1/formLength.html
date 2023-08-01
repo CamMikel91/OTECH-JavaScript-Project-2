@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A8-1: formLength</title>
+</head>
+<body>
+    <h1>Form Lengths</h1>
+
+    <h2>Form 1</h2>
+    <form>
+        <label>Name:</label>
+            <input type="text"><br>
+        <label>E-mail</label>
+            <input type="text"><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <h2>Form 2</h2>
+    <form>
+        <label>Favorite Color:</label>
+            <input type="text"><br>
+        <label>Favorite Food:</label>
+            <input type="text"><br>
+        <input type="reset" value="Reset">
+        <input type="submit" value="Submit">
+    </form>
+
+    <h2>Results</h2>
+    <script type="text/javascript">
+        for (let count = 0; count < document.forms.length; count++) {
+            let formnum = count + 1;
+            document.write(`Form ${formnum} has ${document.forms[count].length} elements.<br>`)
+        }
+    </script>
+</body>
+</html>

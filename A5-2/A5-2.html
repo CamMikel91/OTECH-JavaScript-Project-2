@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A5-2: Largest of Two Numbers</title>
+    <style>
+        form {
+            background-color: lightslategrey;
+            width: 400px;
+            height: 250px;
+            padding: 10px;
+        }
+        form h1 {
+            text-align: center;
+        }
+
+        form input {
+            margin: 5px;
+        }
+
+        label {
+            margin-left: 10px;
+        }
+
+        h1 {
+            font-weight: 200;
+        }
+
+        button {
+            margin: 10px;
+            background-color: white;
+            padding: 6px;
+        }
+
+        #output {
+            margin: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+    <form id="compareForm">
+        <h1>Which Number is Largest?</h1>
+        <label for="num1">Number 1:</label>
+            <input type="text" id="num1" name="num1" placeholder="0"><br>
+        <label for="num2">Number 2:</label>
+            <input type="text" id="num2" name="num2" placeholder="0"><br>
+        <button type="submit" id="compareSubmit">Submit</button>
+        <div id="output"></div>
+    </form>
+
+    <script>
+        let compareForm = document.getElementById("compareForm");
+        compareForm.addEventListener("submit", function() {
+            let num1 = document.getElementById("num1").value,
+                num2 = document.getElementById("num2").value,
+                bigNum = 0,
+                smallNum = 0,
+                output = document.getElementById("output");                
+            num1 = (+num1 === 0) ? 0 : +num1 || false;
+            num2 = (+num2 === 0) ? 0 : +num2 || false;
+            event.preventDefault();
+            if (num1 !== false && num2 !== false) {
+                bigNum = Math.max(num1, num2);
+                smallNum = Math.min(num1, num2);
+                // equal numbers
+                if (bigNum == smallNum) {
+                    output.innerHTML = bigNum + " and " + smallNum + " are equal numbers.";
+                }
+                // !equal numbers
+                else {
+                    output.innerHTML = bigNum + " is larger than " + smallNum;
+                }
+            }
+        }, false);
+        
+    </script>
+</body>
+</html>

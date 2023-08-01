@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A6-1: replace</title>
+</head>
+<body>
+    <script>
+        function getname() {
+            let tomatch = /^[A-Za-z]+\s[A-Za-z]+$/,
+                toreplace = /\b[A-Za-z]/gi,
+                thename = prompt("Enter your first and last name", "");
+            if (tomatch.test(thename)) {
+                newname = thename.replace(toreplace, "Z");
+                alert("Now your name is " + newname);
+            }
+            else {
+                alert("Name invalid. Please Try Again");
+                getname();
+            }
+        }
+        getname();
+    </script>
+</body>
+</html>

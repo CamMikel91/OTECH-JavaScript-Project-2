@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A8-1: action</title>
+</head>
+<body>
+    <form name="info_form" action="http://someplace.com/php/form.php">
+        <label>Name:</label>
+            <input type="text"><br>
+        <input type="submit">
+    </form>
+    <script>
+        document.write("The form goes to " + document.info_form.action);
+    </script>
+</body>
+</html>

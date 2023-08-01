@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A5-1: Ceiling</title>
+</head>
+<body>
+    <form action="" id="getceiling">
+        <label for="num">Number:</label>
+            <input type="text" id="num">
+            <input type="submit" value="Find a Ceiling">
+    </form>
+
+    <script>
+        let ceil_form = document.getElementById("getceiling");
+        ceil_form.addEventListener("submit", function(event) {
+            let num = document.getElementById("num").value,
+                ceiling = 0;
+            num = !isNaN(num) ? num : false;
+            event.preventDefault();
+            if (num !== false) {
+                ceiling = Math.ceil(num);
+                alert("The ceiling of " + num + " is " + ceiling);
+            }
+            else {
+                alert("Please enter a numeric value.");
+            }
+        }, false);
+    </script>
+</body>
+</html>

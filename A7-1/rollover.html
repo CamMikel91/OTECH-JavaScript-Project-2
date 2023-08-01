@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A7-1: rollover</title>
+</head>
+<body>
+    <h1>The image below changes! Move your mouse over it!</h1>
+    <img src="image1.gif" id="pic1" border="0">
+    <script>
+        let im = document.getElementById("pic1");
+        im.addEventListener("mouseover", function() {
+            im.src = "image2.gif";
+        }, false);
+        im.addEventListener("mouseout", function() {
+            im.src = "image1.gif";
+        }, false);
+    </script>
+</body>
+</html>

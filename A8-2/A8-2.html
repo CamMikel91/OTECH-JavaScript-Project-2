@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A8-2: Validate Phone Numbers</title>
+    <style>
+        .formStyle {
+            height: 150px;
+            width: 375px;
+            border: 1px solid black;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-bottom: 20px;
+        }
+        #yellowForm {
+            background-color: #FFFFCC;            
+        }
+        #blueForm {
+            background-color: #CCFFFF;
+        }
+        label {
+            font-size: 20px;
+            font-weight: lighter;
+            margin-left: 10px;
+        }
+        .phoneStyle {
+            margin: 25px 0 10px 0;
+            width: 45%;
+        }
+        .formatSpan {
+            margin-left: 125px;
+        }
+        .btnStyle {
+            margin: 25px 0 0 125px;
+        }
+    </style>
+</head>
+<body>
+    <form id="yellowForm" class="formStyle">
+        <label for="phoneClicked">Input Phone:</label>
+            <input type="text" id="phoneClicked" name="phoneClicked" class="phoneStyle"><br>
+        <span class="formatSpan">Format: 888 888 8888</span><br>
+        <input type="button" id="yellowFormBtn" value="Click Button" class="btnStyle">
+    </form>
+
+    <form id="blueForm" class="formStyle">
+        <label for="phoneSubmitted">Input Phone:</label>
+            <input type="text" id="phoneSubmitted" name="phoneSubmitted" class="phoneStyle"><br>
+        <span class="formatSpan">Format: (888)888-8888</span><br>
+        <input type="submit" id="blueFormBtn" value="Submit Button" class="btnStyle">
+    </form>
+
+    <script>
+        let yellowFormBtn = document.getElementById("yellowFormBtn"),
+            blueForm = document.getElementById("blueForm");
+
+        yellowFormBtn.addEventListener("click", function() {
+            let format1 = /^\d{3}\s\d{3}\s\d{4}$/,
+                phoneClicked = document.getElementById("phoneClicked").value;
+            if (format1.test(phoneClicked)) {
+                alert("Your phone number was formatted correctly");
+            }
+            else {                
+                alert("The phone number must be formatted as follows: 888 888 8888");
+            }
+        }, false);
+
+        blueForm.addEventListener("submit", function(event) {
+            let format2 = /^\(\d{3}\)\d{3}-\d{4}$/,
+                phoneSubmitted = document.getElementById("phoneSubmitted").value;
+            event.preventDefault();
+            if (format2.test(phoneSubmitted)) {
+                alert("Your phone number was formatted correctly");
+            }
+            else {                
+                alert("The phone number must be formatted as follows: (888)888-8888");
+            }
+        }, false);
+
+    </script>
+</body>
+</html>

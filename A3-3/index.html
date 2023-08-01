@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A3-3: Hover Event</title>
+    <style>
+        body {
+            background-color: brown;
+        }
+        #slothSmall {
+            height: 200px;
+            width: 200px;
+            margin: 20px;
+            border: 2px solid black;
+        }
+
+        #slothLarge {
+            display: none;
+            height: 400px;
+            width: 600px;
+            position: absolute;
+            top: 180px;
+            left: 200px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <img src="images/slothSmall.jpg" alt="Small Animated Sloth" id="slothSmall">
+    <img src="images/slothLarge.jpg" alt="AI Generated Realistic Sloth" id="slothLarge">
+    <script>
+        let slothSmall = document.getElementById("slothSmall"),
+            slothLarge = document.getElementById("slothLarge");
+
+        slothSmall.addEventListener("mouseover", function() {
+            slothLarge.style.display = "block";
+        });
+
+        slothSmall.addEventListener("mouseout", function() {
+            slothLarge.style.display = "none";
+        });
+    </script>
+</body>
+</html>

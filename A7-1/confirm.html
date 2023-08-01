@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A7-1: confirm</title>
+</head>
+<body>
+    <a href="http://www.google.com" id="search_link">Go Searching</a>
+    <script>
+        let s_link = document.getElementById("search_link");
+        s_link.addEventListener("click", function(event) {
+            let is_sure = confirm("Are you sure you want to leave?");
+            if (is_sure === false) {
+                event.preventDefault();
+                alert("OK. You can stay here.");
+            }
+        }, false);
+    </script>
+</body>
+</html>

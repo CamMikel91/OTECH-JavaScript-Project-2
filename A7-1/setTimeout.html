@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A7-1: setTimeout</title>
+</head>
+<body>
+    Click the button below within 5 seconds to avoid an alert message. <br><br>
+    <form>
+        <input type="button" value="No Alert for Me!" id="noalert">
+    </form>
+    <script>
+        let theguest = setTimeout(function() {
+            alert("Sign my guest book NOW!");
+        }, 5000),
+            noalert = document.getElementById("noalert");
+        noalert.addEventListener("click", function(event) {
+            clearTimeout(theguest);
+        }, false);
+    </script>
+</body>
+</html>

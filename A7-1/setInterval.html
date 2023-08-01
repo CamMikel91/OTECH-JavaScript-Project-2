@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A7-1: setInterval</title>
+</head>
+<body>
+    Click the button below to end the endless barrage of alerts. <br>
+    <form>
+        <input type="button" value="Stop the Madness!" id="stop_it">
+    </form>
+    <script>
+        let madness = setInterval(function() {
+            alert("Am I bothering you yet?");
+            }, 10000);
+        let stop_it = document.getElementById("stop_it");
+        stop_it.addEventListener("click", function(event) {
+            event.preventDefault();
+            clearInterval(madness);
+        }, false );
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A6-2: Validate a Zip Code Entry</title>
+    <style>
+        form {
+            height: 200px;
+            width: 250px;
+            background-color: lightblue;
+            border: 1px solid darkblue;
+            padding: 10px;
+        }
+        form h1 {
+            font-weight: 200;        
+        }
+    </style>
+</head>
+<body>
+    <form id="zipForm">
+        <h1>Zipcode Validator</h1>
+        <label for="zipcode">Enter a valid zip code (12345-6789)</label><br>
+            <input type="text" id="zipcode">
+        <button type="submit">Submit</button><br><br>
+        <div id="output"></div>
+    </form>
+    <script>
+        let zipForm = document.getElementById("zipForm");
+        zipForm.addEventListener("submit", function(event) {
+            let zipcode = document.getElementById("zipcode").value,
+                output = document.getElementById("output"),
+                tomatch = /^\d{5}-\d{4}$/;
+            event.preventDefault();
+            if (zipcode.match(tomatch)) {
+                output.innerHTML = "Success! " + zipcode + " is a valid zipcode.";
+            }
+            else {
+                output.innerHTML = "Sorry, " + zipcode + " is not a valid zipcode.";
+            }
+        }, false);        
+    </script>
+</body>
+</html>

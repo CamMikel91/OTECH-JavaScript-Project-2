@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A8-1: checkbox</title>
+</head>
+<body>
+    <form id="signup_form">
+        <label for="email">E-mail:</label>
+            <input type="text" name="email" id="email"><br><br>
+        <input type="checkbox" name="agree" id="agree" value="agree"> Agree to Terms
+        (<a href="terms.html" target="_blank">View Terms</a>) <br><br>
+        <input type="submit" name="submit" value="Submit" id="submit">
+    </form>
+
+    <script>
+        let s_form = document.getElementById("signup_form");
+        s_form.addEventListener("submit", function(event) {
+            let agree = document.getElementById("agree");
+            if (!agree.checked) {
+                event.preventDefault();
+                alert('Error: The "Agree to Terms" checkbox must be checked');
+            }
+        }, false);
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A5-1 squareRoute</title>
+</head>
+<body>
+    <form id="getroot">
+        <label for="sr_num">Enter a (positive) number or zero:</label><br>
+        <input type="text" id="sr_num">
+        <input type="submit" value="Get a Square Root">
+    </form>
+    <script>
+        let root_form = document.getElementById("getroot");
+        root_form.addEventListener("submit", function(event) {
+            let thenum = document.getElementById("sr_num").value;
+            thenum = !isNaN(thenum) ? thenum : false;
+            event.preventDefault();
+            if (!thenum || (thenum.length < 1)) {
+                alert("Input is required and must be numeric!");
+                return;
+            }
+            else if (thenum < 0) {
+                alert("Hey! I said to enter a positive number! Try again.");
+                return;
+            }
+            else {
+                let theroot = Math.sqrt(thenum);
+                alert("The square root of " + thenum + " is " + theroot);
+            }
+        }, false);
+    </script>
+</body>
+</html>

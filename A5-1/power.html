@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A5-1: Power</title>
+</head>
+<body>
+    <form action="" id="getpow">
+        <label for="base">Base Number:</label>
+            <input type="text" id="base"><br>
+        <label for="exp">Exponent:</label>
+            <input type="text" id="exp"><br><br>
+        <input type="submit" value="Find a Power">
+    </form>
+
+    <script>
+        let pow_form = document.getElementById("getpow");
+        pow_form.addEventListener("submit", function(event) {
+            let base = document.getElementById("base").value,
+                exp = document.getElementById("exp").value,
+                result = 0;
+            base = +base || false;
+            exp = +exp || false;
+            event.preventDefault();
+            if ((base !== false) && (exp !== false)) {
+                result = Math.pow(base, exp);
+                alert(base + " to the power of " + exp + " is " + result);
+            }
+            else {
+                alert("Please enter only numeric values");
+            }
+        }, false);
+    </script>
+</body>
+</html>

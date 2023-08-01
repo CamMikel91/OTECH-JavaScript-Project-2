@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A8-1: progress</title>
+</head>
+<body>
+    <h1>Math Quiz</h1>
+
+    <form id="qform">
+        <!-- Question 1 -->
+        <label for="q1">1. 2 + 2 = </label>
+            <input type="text" id="q1" name="q1"><br><br>
+
+        <!-- Question 2 -->
+        <label for="q2">2. 2 x 255 x 5 = </label>
+            <input type="text" id="q2" name="q2"><br><br>
+
+        <!-- Question 3 -->
+        <label for="q3">3. 7436 - 2478 = </label>
+            <input type="text" id="q3" name="q3"><br><br>
+
+        <input type="submit" value="Check Answers">
+    </form><br>
+    <div id="grade"></div>
+
+    <script>
+        let qform = document.getElementById("qform"),
+            qs = [
+                document.getElementById("q1"),
+                document.getElementById("q2"),
+                document.getElementById("q3")
+            ],
+            ans = [
+                4,
+                2550,
+                4958
+            ],
+            grade = document.getElementById("grade");
+            
+        qform.addEventListener("submit", function(event) {
+            let num_correct = 0,
+                num_questions = qs.length,
+                grade_HTML = "",
+                score = 0;
+            event.preventDefault();
+            for (let i = 0; i < num_questions; i++) {
+                if (+qs[i].value === ans[i]) {
+                    num_correct += 1;
+                }
+            }
+            score = Math.round(num_correct / num_questions * 100);
+            grade_HTML = 
+                `<progress min="0" max="100" value="${score}">${score}%</progress> Grade: ${score}%`;
+            grade.innerHTML = grade_HTML;
+        }, false);
+    </script>
+</body>
+</html>

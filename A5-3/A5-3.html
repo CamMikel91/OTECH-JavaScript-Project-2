@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A5-3: Total and Average</title>
+    <style>
+        #container {
+            border: 1px gray solid;
+            width: 40%;
+            padding: 10px;
+            padding-bottom: 20px;
+        }
+        
+        h1 {
+            background-color: lightgray;
+            text-align: center;
+            font-weight: 100;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Three Random Integers</h1>
+        <div id="numOutput"></div>
+    </div>
+</body>
+<script>
+
+function randomInts() {
+    let num1 = Math.round(Math.random() * 100),
+        num2 = Math.round(Math.random() * 100),
+        num3 = Math.round(Math.random() * 100),
+        numsTotal = num1 + num2 + num3,
+        numsAverage = Math.round((num1 + num2 + num3) / 3),
+        numOutput = document.getElementById("numOutput");
+    numOutput.innerHTML = `
+        ${num1}<br>
+        ${num2}<br>
+        ${num3}<br><br>
+
+        The total of the numbers is ${numsTotal}<br><br>
+        The average of the numbers is ${numsAverage}
+    `;
+}
+randomInts();
+
+</script>
+</html>
